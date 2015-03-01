@@ -13,6 +13,7 @@ valac -o $NAME -X -lm \
 --pkg gtk+-3.0 \
 --pkg gtksourceview-3.0 \
 --pkg pango \
+--pkg libsoup-2.4 \
 $vte_abi \
 src/main.vala \
 src/window.vala \
@@ -28,6 +29,7 @@ src/terminal.vala \
 src/sidebarlist.vala \
 src/config.vala \
 src/notabbox.vala \
+src/pastebin.vala \
 #-X -fsanitize=address \
 #Uncomment the line below to allow debugging
 
