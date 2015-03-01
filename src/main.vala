@@ -40,7 +40,6 @@ namespace Vulcan
 			this.config.setProperty("dark-theme", "true");
 		
 			this.windows = new DynamicList<Window>();
-			
 			this.addWindow();
 		}
 		

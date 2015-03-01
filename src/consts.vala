@@ -27,6 +27,7 @@ namespace Vulcan
 		public string version_string;
 		public string copyright = "Copyright \u00A9 2015 Barry Smith";
 		public string[] authors = {"Barry Smith <barry.of.smith@gmail.com>"};
+		public string pastebin_api_dev_key = "0e43c0f604dfe1f796b1256368c5c47a";
 	
 		public int min_width = 600;
 		public int min_height = 400;
