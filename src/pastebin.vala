@@ -8,23 +8,32 @@ namespace Vulcan{
 		private string api_paste_code;
 		private string url;
 		private string content;
-		
-		
+				
 		public Pastebin(){
-			api_dev_key = "0e43c0f604dfe1f796b1256368c5c47a";
-			api_paste_code = "Testing from Vulcan";
-			url = "http://pastebin.com/api/api_post.php";
-			content = "api_option=paste&api_dev_key=%s&api_paste_code=%s".printf(api_dev_key, api_paste_code);
+			//Would be nice to access api_dev_key from Consts.
+			//Check how to do that.
+			this.api_dev_key = "0e43c0f604dfe1f796b1256368c5c47a";
+			this.url = "http://pastebin.com/api/api_post.php";
 			
+		}
+			
+		public string paste(string paste_data){
+			this.api_paste_code = paste_data;
+			this.content = "api_option=paste&api_dev_key=%s&api_paste_code=%s"
+						   .printf(this.api_dev_key, this.api_paste_code);
 			var session = new Soup.Session();
 			var message = new Soup.Message("POST", url);
 			
 			message.set_request("application/x-www-form-urlencoded", MemoryUse.COPY, content.data);
-			
 			session.send_message(message);
 			
-			stdout.write(message.response_body.data);
-			stdout.printf("\n");
+			return((string)message.response_body.data);
 		}	
 	}
+	
+	//For testing purposes
+	void main(){
+		var pb = new Pastebin();
+		stdout.printf(pb.paste("Pasting from object method") + "\n");
+		}
 }
